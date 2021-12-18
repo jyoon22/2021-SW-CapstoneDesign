@@ -105,6 +105,7 @@ create table pyeonhee.Consultation (
     primary key (consult_number)
 );
 
+/*
 create table pyeonhee.Reservation (
     consult_number int not null,
     user_id varchar(10) not null,
@@ -114,6 +115,7 @@ create table pyeonhee.Reservation (
     primary key (consult_number),
     foreign key (user_id) references pyeonhee.user (user_id) on delete cascade
 );
+*/
 
 create table pyeonhee.daily_data 
 (
@@ -370,7 +372,7 @@ CREATE TABLE pyeonhee.Monthly_Report (
 	primary key (user_id, report_month),
 	foreign key (user_id) references pyeonhee.user (user_id) on delete cascade
 	);
-
+/*
 INSERT INTO Monthly_Report(user_id,report_month,mbti, progress_days,income,realCommunication,
 realDinner,realEducation,realEvent,realHobby,realInsurance,realMedical,realRent,realSaving,realShopping,realSubscribe,realTraffic,realEct)
 VALUES ('jykim123', 202111, 'PHSE', 26, 2500000, 138000,717700,0,230000,190000,0,0,500000,1050000,5271000,100000,326800,840000);
@@ -378,7 +380,7 @@ VALUES ('jykim123', 202111, 'PHSE', 26, 2500000, 138000,717700,0,230000,190000,0
 INSERT INTO Monthly_Report(user_id,report_month,mbti, progress_days, income,realCommunication,
 realDinner,realEducation,realEvent,realHobby,realInsurance,realMedical,realRent,realSaving,realShopping,realSubscribe,realTraffic,realEct)
 VALUES ('jykim123', 202110, 'PHOM', 26, 2500000, 100000,400000,0,100000,300000,0,0,500000,500000,300000,100000,200000,0);
-
+*/
 
 create table FinancialconsultLike (
     user_id varchar(10) not null,
