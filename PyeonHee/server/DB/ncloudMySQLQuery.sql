@@ -85,6 +85,7 @@ create table pyeonhee.Storage (
 
 );
 
+/*
 create table pyeonhee.FinancialProduct (
     product_name varchar(12) not null,
     product_type varchar(10) not null,
@@ -94,7 +95,9 @@ create table pyeonhee.FinancialProduct (
 
     primary key (product_name)
 );
+*/
 
+/*
 create table pyeonhee.Consultation (
     consult_number int not null,
     counselor_name varchar(10) not null,
@@ -104,6 +107,7 @@ create table pyeonhee.Consultation (
 
     primary key (consult_number)
 );
+*/
 
 /*
 create table pyeonhee.Reservation (
@@ -138,6 +142,17 @@ create table pyeonhee.LikeCount (
 
     primary key (user_id, planning_number),
     foreign key (user_id) references pyeonhee.user (user_id),
+    foreign key (planning_number) references pyeonhee.BudgetPlanning (planning_number) on delete cascade
+);
+
+/*예산계획 추가열람*/
+create table pyeonhee.OpenCount (
+    user_id varchar(10) not null,
+    planning_number int not null,
+    open_check int default 1,
+
+    primary key (user_id, planning_number),
+    foreign key (user_id) references pyeonhee.user (user_id) on delete cascade,
     foreign key (planning_number) references pyeonhee.BudgetPlanning (planning_number) on delete cascade
 );
 
@@ -281,18 +296,6 @@ create table pyeonhee.loan_product
     interest float(4,2) not null,
     link varchar(200) not null,
     primary key (loan_number)
-);
-
-
-/*예산계획 추가열람*/
-create table pyeonhee.OpenCount (
-    user_id varchar(10) not null,
-    planning_number int not null,
-    open_check int default 1,
-
-    primary key (user_id, planning_number),
-    foreign key (user_id) references pyeonhee.user (user_id) on delete cascade,
-    foreign key (planning_number) references pyeonhee.BudgetPlanning (planning_number) on delete cascade
 );
 
 /*상담사 테이블*/
